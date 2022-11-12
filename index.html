@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; connect-src 'self'; child-src 'self'; style-src 'self'; object-src 'none';"
+    />
+    <meta
+      name="description"
+      content="Simple-Pomodoro-Timer-adopting-bootstrap5-css"
+    />
+    <link rel="modulepreload" href="./modules/TimeCalc.js" />
+    <script type="module" src="app.js"></script>
+    <title>SimplePomodoroTimer</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/public/style.css" media="all" />
+  </head>
+
+  <body>
+    <div class="container-fluid p-3 bg-success text-white text-center">
+      <header>
+        <p class="fs-1 fw-bold">SimplePomodoroTimer</p>
+      </header>
+    </div>
+    <div
+      id="div1"
+      class="container-fluid p-3 bg-danger bg-opacity-75 text-white text-center"
+    >
+      <div class="container-fluid p-3">
+        <p id="hd1" class="fs-4 fw-bold">
+          Select one of the timers <br />
+          "ON DUTY".
+        </p>
+        <div class="btn-group btn-group-lg">
+          <button id="btn25" class="btn btn-primary">25mins.</button>
+          <button id="btn30" class="btn btn-primary">30mins.</button>
+          <button id="btn35" class="btn btn-primary">35mins.</button>
+        </div>
+      </div>
+      <div class="container-fluid p-3">
+        <p id="hd2" class="fs-4 fw-bold">
+          Click the button for <br />
+          "TIME-OFF".
+        </p>
+        <button id="btn5" class="btn btn-warning btn-lg">05mins.</button>
+      </div>
+      <div class="container-fluid p-3">
+        <p class="display-1 fw-bolder">
+          <span id="mins_secs"></span>
+        </p>
+      </div>
+      <div id="div2" class="container-fluid p-3" hidden>
+        <p class="fs-4 fw-bold">
+          Any problem? <br />
+          Relax, then Reset.
+        </p>
+        <button id="btn_RST" class="btn btn-info btn-lg">Reset.</button>
+      </div>
+    </div>
+    <div class="container-fluid p-3 bg-success text-white text-center">
+      <footer class="footer">
+        This product is dedicated to Mr. Mo and Ms. Cathy. Since Feb, 2022 (C)
+        Y.K
+      </footer>
+    </div>
+  </body>
+</html>
