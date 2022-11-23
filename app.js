@@ -13,9 +13,9 @@ const btn = [
   document.getElementById("btn_RST"),
 ];
 const modulePath = [
-  "./modules/CountDownTimer.js",
-  "./modules/ChangerAfterDue.js",
-  "./modules/ChangerAfterTimeoff.js",
+  "./CountDownTimer.js",
+  "./ChangerAfterDue.js",
+  "./ChangerAfterTimeoff.js",
 ];
 const div = [document.getElementById("div1"), document.getElementById("div2")];
 const hd = [document.getElementById("hd1"), document.getElementById("hd2")];

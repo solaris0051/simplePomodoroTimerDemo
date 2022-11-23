@@ -1,6 +1,6 @@
 export const CountDownTimer = (cdt) => {
   if (window.Worker) {
-    const workerID0 = new Worker("./modules/TimeCalc.js", {
+    const workerID0 = new Worker("./TimeCalc.js", {
       type: "module",
     });
     workerID0.postMessage(cdt);
