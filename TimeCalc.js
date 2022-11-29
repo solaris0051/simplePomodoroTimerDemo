@@ -1,4 +1,4 @@
-onmessage = function (event) {
+addEventListener("message", (event) => {
   let due = event.data * 60;
   let timerID0 = setInterval(() => {
     if (due >= 0) {
@@ -10,4 +10,4 @@ onmessage = function (event) {
       clearInterval(timerID0);
     }
   }, 1000);
-};
+});

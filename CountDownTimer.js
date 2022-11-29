@@ -4,10 +4,10 @@ export const CountDownTimer = (cdt) => {
       type: "module",
     });
     workerID0.postMessage(cdt);
-    workerID0.onmessage = function (event) {
+    workerID0.addEventListener("message", (event) => {
       document.getElementById("mins_secs").textContent = event.data;
       event.data === "00:00" ? workerID0.terminate() : true;
-    };
+    });
   } else {
     document.getElementById(
       "mins_secs"
