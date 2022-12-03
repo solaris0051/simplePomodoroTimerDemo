@@ -80,3 +80,15 @@ async function domChanger() {
   div[1].removeAttribute("hidden");
   hd[0].innerHTML = hdText[0];
 }
+
+// control fullscreen(enter/exit)
+const toggleBtn = document.getElementById("toggleBtn");
+toggleBtn.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+});
