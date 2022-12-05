@@ -1,4 +1,4 @@
- // common constants
+// common constants
 const due = [25, 30, 35, 5];
 const hdText = [
   `Concentrate the mind <br> on the present moment!`,
@@ -72,8 +72,7 @@ btn[4].addEventListener(
 
 //async functions commonly used above for each btn for duration, respectively.
 async function btnDisabler() {
-	for (let i = 0; i < btn.length - 1; i++)
-  btn[i].disabled = true;
+  for (let i = 0; i < btn.length - 1; i++) btn[i].disabled = true;
 }
 
 async function domChanger() {
@@ -86,9 +85,11 @@ const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
+    toggleBtn.className = "bi bi-fullscreen-exit";
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
+      toggleBtn.className = "bi bi-arrows-fullscreen";
     }
   }
 });
