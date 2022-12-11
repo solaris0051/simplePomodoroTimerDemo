@@ -4,7 +4,12 @@ const hdText = [
   `Concentrate the mind <br> on the present moment!`,
   `Wish you a relaxing time <br> just for a short while.`,
 ];
-const className = ["container-fluid p-3 bg-success text-white text-center"];
+const className = [
+  "container-fluid p-0 visible",
+  "container-fluid p-3 bg-success text-white text-center",
+  "bi bi-fullscreen-exit",
+  "bi bi-arrows-fullscreen",
+];
 const btn = [
   document.getElementById("btn25"),
   document.getElementById("btn30"),
@@ -34,7 +39,7 @@ for (let i = 0; i < btn.length - 2; i++) {
         })
         .then(
           import(modulePath[1]).then((module) => {
-            module.ChangerAfterDue(due[i], btn[3], div[0], className[0]);
+            module.ChangerAfterDue(due[i], btn[3], div[0], className[1]);
           })
         );
     },
@@ -76,7 +81,8 @@ async function btnDisabler() {
 }
 
 async function domChanger() {
-  div[1].removeAttribute("hidden");
+  // div[1].removeAttribute("hidden");
+  div[1].className = className[0];
   hd[0].innerHTML = hdText[0];
 }
 
@@ -85,11 +91,11 @@ const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
-    toggleBtn.className = "bi bi-fullscreen-exit";
+    toggleBtn.className = className[2];
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
-      toggleBtn.className = "bi bi-arrows-fullscreen";
+      toggleBtn.className = className[3];
     }
   }
 });
