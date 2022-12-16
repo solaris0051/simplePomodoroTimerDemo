@@ -1,5 +1,5 @@
 // common constants
-const due = [25, 30, 35, 5];
+const due = [25, 30, 55, 5];
 const hdText = [
   `Concentrate the mind <br> on the present moment!`,
   `Wish you a relaxing time <br> just for a short while.`,
@@ -13,7 +13,7 @@ const className = [
 const btn = [
   document.getElementById("btn25"),
   document.getElementById("btn30"),
-  document.getElementById("btn35"),
+  document.getElementById("btn55"),
   document.getElementById("btn5"),
   document.getElementById("btn_RST"),
 ];
@@ -27,7 +27,7 @@ const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 
 btn[3].disabled = true;
 
-//multiple_on_duty(25, 30, 35mins.)
+//multiple_on_duty(25, 30, 55mins.)
 for (let i = 0; i < btn.length - 2; i++) {
   btn[i].addEventListener(
     "click",
