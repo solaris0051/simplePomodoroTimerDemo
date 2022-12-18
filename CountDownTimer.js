@@ -11,6 +11,6 @@ export const CountDownTimer = (cdt) => {
   } else {
     document.getElementById(
       "mins_secs"
-    ).textContent = `Will you please make sure if worker was available?`;
+    ).textContent = `Web workerが利用可能か、ご確認ください。`;
   }
 };

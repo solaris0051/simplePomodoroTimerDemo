@@ -1,8 +1,8 @@
 // common constants
 const due = [25, 30, 55, 5];
 const hdText = [
-  `Concentrate the mind <br> on the present moment!`,
-  `Wish you a relaxing time <br> just for a short while.`,
+  `今、この瞬間に集中してください。`,
+  `やすらぎのときを少し、過ごされますように。`,
 ];
 const className = [
   "container-fluid p-0 visible",
@@ -35,7 +35,7 @@ for (let i = 0; i < btn.length - 2; i++) {
       import(modulePath[0])
         .then((module) => {
           module.CountDownTimer(due[i]);
-          btnDisabler().then(domChanger);
+          btnDisabler().then(domVisualizer);
         })
         .then(
           import(modulePath[1]).then((module) => {
@@ -80,8 +80,7 @@ async function btnDisabler() {
   for (let i = 0; i < btn.length - 1; i++) btn[i].disabled = true;
 }
 
-async function domChanger() {
-  // div[1].removeAttribute("hidden");
+async function domVisualizer() {
   div[1].className = className[0];
   hd[0].innerHTML = hdText[0];
 }
