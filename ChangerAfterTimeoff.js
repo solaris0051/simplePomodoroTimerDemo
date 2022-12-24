@@ -1,5 +1,6 @@
 export const ChangerAfterTimeoff = (catt) => {
   setTimeout(() => {
+		workerID0.terminate();
     navigator.vibrate(10000);
     setTimeout(() => {
       location.reload();
