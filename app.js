@@ -1,5 +1,5 @@
 // common constants
-const due = [25, 30, 55, 25];
+const due = [25, 30, 55, 5];
 const hdText = [
   `今、この瞬間に集中してください。`,
   `やすらぎのときを少し、過ごされますように。`,
@@ -25,7 +25,8 @@ const modulePath = [
 const div = [document.getElementById("div1"), document.getElementById("div2")];
 const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 
-btn[3].disabled = true;
+//initialize
+  btn[3].disabled = true;
 
 //multiple_on_duty(25, 30, 55mins.)
 for (let i = 0; i < btn.length - 2; i++) {
