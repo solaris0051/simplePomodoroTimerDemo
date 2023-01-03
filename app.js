@@ -5,7 +5,7 @@ const hdText = [
   `やすらぎのときを少し、過ごされますように。`,
 ];
 const className = [
-  "container-fluid p-0 visible",
+  "container-fluid p-3 visible",
   "container-fluid p-3 bg-success text-white text-center",
   "bi bi-fullscreen-exit",
   "bi bi-arrows-fullscreen",
@@ -22,7 +22,11 @@ const modulePath = [
   "./ChangerAfterDue.js",
   "./ChangerAfterTimeoff.js",
 ];
-const div = [document.getElementById("div1"), document.getElementById("div2")];
+const div = [
+  document.getElementById("div1"),
+  document.getElementById("div2"),
+  document.getElementById("div3"),
+];
 const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 
 //initialize
@@ -83,6 +87,7 @@ async function btnDisabler() {
 
 async function domVisualizer() {
   div[1].className = className[0];
+  div[2].className = className[0];
   hd[0].innerHTML = hdText[0];
 }
 
