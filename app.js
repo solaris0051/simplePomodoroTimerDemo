@@ -86,8 +86,9 @@ async function btnDisabler() {
 }
 
 async function domVisualizer() {
-  div[1].className = className[0];
-  div[2].className = className[0];
+  for (let i = 1; i < div.length; i++) {
+    div[i].className = className[0];
+  }
   hd[0].innerHTML = hdText[0];
 }
 
