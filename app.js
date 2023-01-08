@@ -1,8 +1,8 @@
 // common constants
 const due = [25, 30, 55, 5];
 const hdText = [
-  `今、この瞬間に集中してください。`,
-  `やすらぎのときを少し、過ごされますように。`,
+  `今この瞬間に<br>集中してください。`,
+  `やすらぎのときを少し、<br>過ごされますように。`,
 ];
 const className = [
   "container-fluid p-3 visible",
