@@ -17,11 +17,6 @@ const btn = [
   document.getElementById("btn5"),
   document.getElementById("btn_RST"),
 ];
-const modulePath = [
-  "./CountDownTimer.js",
-  "./ChangerAfterDue.js",
-  "./ChangerAfterTimeoff.js",
-];
 const div = [
   document.getElementById("div1"),
   document.getElementById("div2"),
@@ -37,13 +32,13 @@ for (let i = 0; i < btn.length - 2; i++) {
   btn[i].addEventListener(
     "click",
     () => {
-      import(modulePath[0])
+      import("./CountDownTimer.js")
         .then((module) => {
           module.CountDownTimer(due[i]);
           btnDisabler().then(domVisualizer);
         })
         .then(
-          import(modulePath[1]).then((module) => {
+          import("./ChangerAfterDue.js").then((module) => {
             module.ChangerAfterDue(due[i], btn[3], div[0], className[1]);
           })
         );
@@ -56,14 +51,14 @@ for (let i = 0; i < btn.length - 2; i++) {
 btn[3].addEventListener(
   "click",
   () => {
-    import(modulePath[0])
+    import("./CountDownTimer.js")
       .then((module) => {
         module.CountDownTimer(due[3]);
         btnDisabler();
         hd[1].innerHTML = hdText[1];
       })
       .then(
-        import(modulePath[2]).then((module) => {
+        import("./ChangerAfterTimeoff.js").then((module) => {
           module.ChangerAfterTimeoff(due[3]);
         })
       );
