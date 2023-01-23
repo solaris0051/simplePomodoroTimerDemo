@@ -1,5 +1,5 @@
 // common constants
-const due = [25, 30, 55, 5];
+const due = [0.1, 30, 55, 0.1];
 const hdText = [
   `今この瞬間に<br>集中してください。`,
   `やすらぎのときを少し、<br>過ごされますように。`,
