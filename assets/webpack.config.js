@@ -5,11 +5,10 @@ const devMode = process.env.NODE_ENV !== "production";
 module.exports = {
   entry: {
     bundle: "./src/index.js",
-    // worker: "./src/TimeCalc.js"
   },
 
   output: {
-    filename: "[name].js",
+    filename: "main.js",
     path: path.resolve(__dirname, "public"),
     clean: true,
     assetModuleFilename: "images/[name][ext][query]",
