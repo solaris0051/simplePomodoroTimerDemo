@@ -2,7 +2,7 @@ import "bootstrap/scss/bootstrap.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 // common constants
-const due = [25, 30, 55, 25];
+const due = [25, 30, 55, 5];
 const hdText = [
   `今この瞬間に<br>集中してください。`,
   `やすらぎのときを少し、<br>過ごされますように。`,
