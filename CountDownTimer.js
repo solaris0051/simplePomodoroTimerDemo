@@ -1,9 +1,8 @@
 export const CountDownTimer = (cdt) => {
   if (window.Worker) {
-    // const workerID0 = new Worker("./TimeCalc.js", {
-    //   type: "module",
-    // });
-    const workerID0 = new Worker(new URL("./TimeCalc.js", import.meta.url));
+    const workerID0 = new Worker("./TimeCalc.js", {
+      type: "module",
+    });
     workerID0.postMessage(cdt);
     workerID0.addEventListener("message", (event) => {
       document.getElementById("mins_secs").textContent = event.data;
@@ -15,5 +14,3 @@ export const CountDownTimer = (cdt) => {
     ).textContent = `Web workerが利用可能か、ご確認ください。`;
   }
 };
-
-// new Worker(new URL('./worker.js', import.meta.url));
