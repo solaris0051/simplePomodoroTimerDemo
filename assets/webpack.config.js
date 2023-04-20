@@ -87,7 +87,8 @@ module.exports = {
       filename: "style.css",
     }),
       new HtmlWebpackPlugin({
-        template: 'src/index.html'
+        template: "src/index.html",
+        favicon: "src/favicon.ico",
       })
   ],
   devtool: devMode ? "source-map" : "eval",
