@@ -96,7 +96,7 @@ toggleBtn.addEventListener("click", () => {
         document.documentElement.requestFullscreen();
         toggleBtn.className = className[2];
     } else {
-        if (document.exitFullscreen) {
+        if (document.fullscreenElement) {
             document.exitFullscreen();
             toggleBtn.className = className[3];
         }
