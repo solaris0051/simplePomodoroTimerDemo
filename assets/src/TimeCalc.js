@@ -1,4 +1,4 @@
-addEventListener("message", (event) => {
+addEventListener("message", event => {
   let due = event.data * 60;
   let timerID0 = setInterval(() => {
     if (due >= 0) {
