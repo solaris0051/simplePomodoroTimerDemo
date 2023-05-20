@@ -1,7 +1,7 @@
 import "bootstrap/scss/bootstrap.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
 // common constants
-const due = [25, 30, 55, 5];
+const due = [0.2, 0.4, 0.6, 0.1];
 const hdText = [
     `今この瞬間に<br>集中してください。`,
     `やすらぎのときを少し、<br>過ごされますように。`,
@@ -13,10 +13,10 @@ const className = [
     "bi bi-arrows-fullscreen",
 ];
 const btn = [
-    document.getElementById("btn25"),
-    document.getElementById("btn30"),
-    document.getElementById("btn55"),
-    document.getElementById("btn5"),
+    document.getElementById("btn12"),
+    document.getElementById("btn24"),
+    document.getElementById("btn36"),
+    document.getElementById("btn06"),
     document.getElementById("btn_RST"),
 ];
 const div = [
@@ -29,7 +29,7 @@ const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 //initialize
 btn[3].disabled = true;
 
-//multiple_on_duty(25, 30, 55mins.)
+//multiple_on_duty(12, 24, 36secs.)
 for (let i = 0; i < btn.length - 2; i++) {
     btn[i].addEventListener(
         "click",
@@ -51,7 +51,7 @@ for (let i = 0; i < btn.length - 2; i++) {
     );
 }
 
-//single_off_duty(5mins.)
+//single_off_duty(6secs.)
 btn[3].addEventListener(
     "click",
     () => {
