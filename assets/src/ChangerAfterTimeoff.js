@@ -4,5 +4,5 @@ export const ChangerAfterTimeoff = (catt) => {
     setTimeout(() => {
       location.reload();
     }, 10000 + 5000);
-  }, catt * 60 * 1000+1000);
+  }, catt * 60 * 1000 + 1000);
 };
