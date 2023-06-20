@@ -3,6 +3,8 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+
 
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -92,6 +94,33 @@ module.exports = {
       // and not allow any straggling "old" SWs to hang around
       clientsClaim: true,
       skipWaiting: true,
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "src/192x192.png",
+          to: "192x192.png",
+          toType: "file",
+        },
+      ],
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "src/maskable_icon.png",
+          to: "maskable_icon.png",
+          toType: "file",
+        },
+      ],
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "src/manifest.json",
+          to: "manifest.json",
+          toType: "file",
+        },
+      ],
     }),
   ],
   devtool: devMode ? "source-map" : "eval",
