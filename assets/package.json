@@ -12,14 +12,14 @@
     "semver": "7.5.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.6",
-    "@babel/preset-env": "^7.22.6",
+    "@babel/core": "^7.22.7",
+    "@babel/preset-env": "^7.22.7",
     "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.25",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.0.0",
     "sass": "^1.63.6",
