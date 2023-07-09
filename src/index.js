@@ -41,7 +41,7 @@ const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 for (let i = 0; i < btn.length - 2; i++) {
     btn[i].addEventListener(
         "click",
-        () => {
+        async () => {
             import("./CountDownTimer.js")
                 .then(module => {
                     module.CountDownTimer(due[i]);
@@ -62,7 +62,7 @@ for (let i = 0; i < btn.length - 2; i++) {
 //single_off_duty(6secs.)
 btn[3].addEventListener(
     "click",
-    () => {
+    async () => {
         import("./CountDownTimer.js")
             .then(module => {
                 module.CountDownTimer(due[3]);
@@ -82,7 +82,7 @@ btn[3].addEventListener(
 //Reset.
 btn[4].addEventListener(
     "click",
-    () => {
+    async () => {
         location.reload();
     },
     false
@@ -102,7 +102,7 @@ async function domVisualizer() {
 
 // control fullscreen(enter/exit)
 const toggleBtn = document.getElementById("toggleBtn");
-toggleBtn.addEventListener("click", () => {
+toggleBtn.addEventListener("click", async () => {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
         toggleBtn.className = className[2];
