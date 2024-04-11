@@ -18,7 +18,7 @@
     "mini-css-extract-plugin": "^2.8.1",
     "postcss": "^8.4.38",
     "postcss-loader": "^8.1.1",
-    "postcss-preset-env": "^9.5.4",
+    "postcss-preset-env": "^9.5.5",
     "sass": "^1.74.1",
     "sass-loader": "^14.1.1",
     "style-loader": "^4.0.0",
