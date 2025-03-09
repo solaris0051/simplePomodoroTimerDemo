@@ -97,29 +97,9 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        {
-          from: "src/192x192.png",
-          to: "192x192.png",
-          toType: "file",
-        },
-      ],
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: "src/maskable_icon.png",
-          to: "maskable_icon.png",
-          toType: "file",
-        },
-      ],
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: "src/manifest.json",
-          to: "manifest.json",
-          toType: "file",
-        },
+        { from: "src/192x192.png", to: "192x192.png", toType: "file" },
+        { from: "src/maskable_icon.png", to: "maskable_icon.png", toType: "file" },
+        { from: "src/manifest.json", to: "manifest.json", toType: "file" },
       ],
     }),
   ],

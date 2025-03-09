@@ -37,66 +37,41 @@ const div = [
 ];
 const hd = [document.getElementById("hd1"), document.getElementById("hd2")];
 
-//multiple_on_duty(12, 24, 36secs.)
-for (let i = 0; i < btn.length - 2; i++) {
-    btn[i].addEventListener(
-        "click",
-        async () => {
-            import("./CountDownTimer.js")
-                .then(module => {
-                    module.CountDownTimer(due[i]);
-                    btnDisabler()
-                        .then(domVisualizer);
-                })
-                .then(
-                    import("./ChangerAfterDue.js")
-                        .then(module => {
-                            module.ChangerAfterDue(due[i], btn[3], div[0], className[1]);
-                        })
-                );
-        },
-        false
-    );
-}
+// Add event listeners to buttons
+btn.slice(0, 3).forEach((button, i) => {
+    button.addEventListener("click", async () => {
+        await import("./CountDownTimer.js").then(module => {
+            module.CountDownTimer(due[i]);
+            btnDisabler().then(domVisualizer);
+        });
+        await import("./ChangerAfterDue.js").then(module => {
+            module.ChangerAfterDue(due[i], btn[3], div[0], className[1]);
+        });
+    }, false);
+});
 
-//single_off_duty(6secs.)
-btn[3].addEventListener(
-    "click",
-    async () => {
-        import("./CountDownTimer.js")
-            .then(module => {
-                module.CountDownTimer(due[3]);
-                btnDisabler();
-                hd[1].innerHTML = hdText[1];
-            })
-            .then(
-                import("./ChangerAfterTimeoff.js")
-                    .then(module => {
-                        module.ChangerAfterTimeoff(due[3]);
-                    })
-            );
-    },
-    false
-);
+btn[3].addEventListener("click", async () => {
+    await import("./CountDownTimer.js").then(module => {
+        module.CountDownTimer(due[3]);
+        btnDisabler();
+        hd[1].innerHTML = hdText[1];
+    });
+    await import("./ChangerAfterTimeoff.js").then(module => {
+        module.ChangerAfterTimeoff(due[3]);
+    });
+}, false);
 
-//Reset.
-btn[4].addEventListener(
-    "click",
-    async () => {
-        location.reload();
-    },
-    false
-);
+btn[4].addEventListener("click", async () => {
+    location.reload();
+}, false);
 
-//async functions commonly used above for each btn for duration, respectively.
+// async functions commonly used above for each btn for duration, respectively.
 async function btnDisabler() {
-    for (let i = 0; i < btn.length - 1; i++) btn[i].disabled = true;
+    btn.slice(0, -1).forEach(button => button.disabled = true);
 }
 
 async function domVisualizer() {
-    for (let i = 1; i < div.length; i++) {
-        div[i].className = className[0];
-    }
+    div.slice(1).forEach(d => d.className = className[0]);
     hd[0].innerHTML = hdText[0];
 }
 
@@ -104,11 +79,11 @@ async function domVisualizer() {
 const toggleBtn = document.getElementById("toggleBtn");
 toggleBtn.addEventListener("click", async () => {
     if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
+        await document.documentElement.requestFullscreen();
         toggleBtn.className = className[2];
     } else {
         if (document.fullscreenElement) {
-            document.exitFullscreen();
+            await document.exitFullscreen();
             toggleBtn.className = className[3];
         }
     }

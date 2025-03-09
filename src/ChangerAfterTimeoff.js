@@ -1,8 +1,10 @@
 export const ChangerAfterTimeoff = (catt) => {
-  setTimeout(() => {
+  const vibrateAndReload = () => {
     navigator.vibrate(5000);
     setTimeout(() => {
       location.reload();
     }, 5000);
-  }, catt * 60 * 1000 + 1000);
+  };
+
+  setTimeout(vibrateAndReload, catt * 60 * 1000 + 1000);
 };
