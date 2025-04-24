@@ -18,13 +18,8 @@
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8.5.3",
     "postcss-loader": "^8.1.1",
-<<<<<<< HEAD
     "postcss-preset-env": "^10.1.6",
     "sass": "^1.87.0",
-=======
-    "postcss-preset-env": "^10.1.5",
-    "sass": "^1.86.1",
->>>>>>> 0134ef6e4d4595bce4d8be7a6535a94c82e1940a
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "webpack": "^5.99.6",
