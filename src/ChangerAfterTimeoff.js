@@ -6,5 +6,5 @@ export const ChangerAfterTimeoff = (catt) => {
     }, 5000);
   };
 
-  setTimeout(vibrateAndReload, catt * 60 * 1000 + 1000);
+  setTimeout(vibrateAndReload, catt * 60 * 1000);
 };
