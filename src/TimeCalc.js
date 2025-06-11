@@ -1,5 +1,5 @@
 addEventListener("message", (event) => {
-  const endTime = Date.now() + event.data * 60 * 1000;
+  const endTime = Date.now() + event.data * 60 * 1000 + 2000;
   const timerID = setInterval(() => {
     const remainingTime = endTime - Date.now();
     if (remainingTime >= 0) {
