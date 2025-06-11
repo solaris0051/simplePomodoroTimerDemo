@@ -11,5 +11,5 @@ export const ChangerAfterDue = (cadt, btn, id, className) => {
   setTimeout(() => {
     changeClassNameAndVibrate();
     setTimeout(enableButton, 5000);
-  }, cadt * 60 * 1000);
+  }, cadt * 60 * 1000 + 2000);
 };
