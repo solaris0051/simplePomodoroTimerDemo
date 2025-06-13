@@ -1,17 +1,17 @@
-export const CountDownTimer = cdt => {
+export const startCountDownTimer = (countDownMinutes) => {
   if (!window.Worker) {
     document.getElementById("mins_secs").textContent = `Web workerが利用可能か、ご確認ください。`;
     return;
   }
 
-  const workerID0 = new Worker(new URL("./TimeCalc.js", import.meta.url));
-  workerID0.postMessage(cdt);
-  workerID0.addEventListener("message", event => handleWorkerMessage(event, workerID0));
+  const timerWorker = new Worker(new URL("./TimeCalc.js", import.meta.url));
+  timerWorker.postMessage(countDownMinutes);
+  timerWorker.addEventListener("message", event => handleTimerWorkerMessage(event, timerWorker));
 };
 
-const handleWorkerMessage = (event, worker) => {
+const handleTimerWorkerMessage = (event, timerWorker) => {
   document.getElementById("mins_secs").textContent = event.data;
   if (event.data === "00:00") {
-    worker.terminate();
+    timerWorker.terminate();
   }
 };

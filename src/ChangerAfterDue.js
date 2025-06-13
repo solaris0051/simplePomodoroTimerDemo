@@ -1,15 +1,15 @@
-export const ChangerAfterDue = (cadt, btn, id, className) => {
-  const changeClassNameAndVibrate = () => {
-    id.className = className;
+export const changeElementAfterDue = (delayMinutes, targetButton, targetElement, newClassName) => {
+  const applyClassNameAndVibrate = () => {
+    targetElement.className = newClassName;
     navigator.vibrate(5000);
   };
 
-  const enableButton = () => {
-    btn.disabled = false;
+  const enableTargetButton = () => {
+    targetButton.disabled = false;
   };
 
   setTimeout(() => {
-    changeClassNameAndVibrate();
-    setTimeout(enableButton, 5000);
-  }, cadt * 60 * 1000 + 1000);
+    applyClassNameAndVibrate();
+    setTimeout(enableTargetButton, 5000);
+  }, delayMinutes * 60 * 1000 + 1000);
 };
