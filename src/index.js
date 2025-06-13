@@ -26,7 +26,7 @@ const timerButtons = [
     document.getElementById("btn12"),
     document.getElementById("btn24"),
     document.getElementById("btn36"),
-    document.getElementById("btn6"),
+    document.getElementById("btn06"),
     document.getElementById("btn_RST"),
 ];
 const containerDivs = [
