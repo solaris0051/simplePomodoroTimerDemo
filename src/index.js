@@ -26,10 +26,10 @@ const timerButtons = [
     document.getElementById("btn12"),
     document.getElementById("btn24"),
     document.getElementById("btn36"),
-    document.getElementById("btn06"),
+    document.getElementById("btn5"),
     document.getElementById("btn_RST"),
 ];
-const contentDivs = [
+const containerDivs = [
     document.getElementById("div1"),
     document.getElementById("div2"),
     document.getElementById("div3"),
@@ -39,50 +39,57 @@ const headerElements = [
     document.getElementById("hd2")
 ];
 
-timerButtons.slice(0, 3).forEach((button, i) => {
-    button.addEventListener("click", async () => {
-        await import("./CountDownTimer.js").then(module => {
-            module.CountDownTimer(timerDurations[i]);
-            disableTimerButtons().then(updateDomForTimerStart);
-        });
-        await import("./ChangerAfterDue.js").then(module => {
-            module.ChangerAfterDue(timerDurations[i], timerButtons[3], contentDivs[0], containerClassNames[1]);
-        });
-    }, false);
+timerButtons.forEach((buttonElement, buttonIndex) => {
+    if (buttonIndex < timerButtons.length - 2) {
+        buttonElement.addEventListener("click", () => handleTimerButtonClick(buttonIndex), false);
+    } else if (buttonIndex === timerButtons.length - 2) {
+        buttonElement.addEventListener("click", handleSingleOffDutyClick, false);
+    } else {
+        buttonElement.addEventListener("click", handleResetClick, false);
+    }
 });
 
-timerButtons[3].addEventListener("click", async () => {
-    await import("./CountDownTimer.js").then(module => {
-        module.CountDownTimer(timerDurations[3]);
-        disableTimerButtons();
-        headerElements[1].innerHTML = headerMessages[1];
-    });
-    await import("./ChangerAfterTimeoff.js").then(module => {
-        module.ChangerAfterTimeoff(timerDurations[3]);
-    });
-}, false);
-
-timerButtons[4].addEventListener("click", async () => {
-    location.reload();
-}, false);
-
-async function disableTimerButtons() {
-    timerButtons.slice(0, -1).forEach(button => button.disabled = true);
+async function handleTimerButtonClick(timerIndex) {
+    const { countDownTimer } = await import("./CountDownTimer.js");
+    countDownTimer(timerDurations[timerIndex]);
+    await disableTimerButtons();
+    await updateDomForTimer();
+    const { changeAfterTimerEnd } = await import("./ChangerAfterDue.js");
+    changeAfterTimerEnd(timerDurations[timerIndex], timerButtons[3], containerDivs[0], containerClassNames[1]);
 }
 
-async function updateDomForTimerStart() {
-    contentDivs.slice(1).forEach(div => div.className = containerClassNames[0]);
+async function handleSingleOffDutyClick() {
+    const { countDownTimer } = await import("./CountDownTimer.js");
+    countDownTimer(timerDurations[3]);
+    await disableTimerButtons();
+    headerElements[1].innerHTML = headerMessages[1];
+    const { changeAfterTimeOff } = await import("./ChangerAfterTimeoff.js");
+    changeAfterTimeOff(timerDurations[3]);
+}
+
+async function handleResetClick() {
+    location.reload();
+}
+
+async function disableTimerButtons() {
+    for (let i = 0; i < timerButtons.length - 1; i++) timerButtons[i].disabled = true;
+}
+
+async function updateDomForTimer() {
+    for (let i = 1; i < containerDivs.length; i++) {
+        containerDivs[i].className = containerClassNames[0];
+    }
     headerElements[0].innerHTML = headerMessages[0];
 }
 
 const fullscreenToggleButton = document.getElementById("toggleBtn");
 fullscreenToggleButton.addEventListener("click", async () => {
     if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen();
+        document.documentElement.requestFullscreen();
         fullscreenToggleButton.className = containerClassNames[2];
     } else {
         if (document.fullscreenElement) {
-            await document.exitFullscreen();
+            document.exitFullscreen();
             fullscreenToggleButton.className = containerClassNames[3];
         }
     }
