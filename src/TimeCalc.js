@@ -1,17 +1,17 @@
 addEventListener("message", (event) => {
-  const endTime = Date.now() + event.data * 60 * 1000 + 2000;
-  const timerID = setInterval(() => {
-    const remainingTime = endTime - Date.now();
-    if (remainingTime >= 0) {
-      const mins = formatTime(Math.floor((remainingTime / 1000 / 60) % 60));
-      const secs = formatTime(Math.floor((remainingTime / 1000) % 60));
-      postMessage(`${mins}:${secs}`);
+  const endTimestamp = Date.now() + event.data * 60 * 1000 + 2000;
+  const intervalId = setInterval(() => {
+    const timeLeft = endTimestamp - Date.now();
+    if (timeLeft >= 0) {
+      const minutes = formatTwoDigits(Math.floor((timeLeft / 1000 / 60) % 60));
+      const seconds = formatTwoDigits(Math.floor((timeLeft / 1000) % 60));
+      postMessage(`${minutes}:${seconds}`);
     } else {
-      clearInterval(timerID);
+      clearInterval(intervalId);
     }
   }, 1000);
 });
 
-function formatTime(time) {
-  return `0${time}`.slice(-2);
+function formatTwoDigits(value) {
+  return `0${value}`.slice(-2);
 }
