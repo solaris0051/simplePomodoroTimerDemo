@@ -1,10 +1,14 @@
-export const changeAfterTimeout = (timeoutMinutes) => {
-  const vibrateAndReloadPage = () => {
-    navigator.vibrate(5000);
-    setTimeout(() => {
-      location.reload();
-    }, 5000);
-  };
+const VIBRATION_DURATION_MS = 5000;
+const RELOAD_DELAY_MS = 5000;
 
-  setTimeout(vibrateAndReloadPage, timeoutMinutes * 60 * 1000);
+const vibrateAndReload = () => {
+  navigator.vibrate(VIBRATION_DURATION_MS);
+  setTimeout(() => {
+    location.reload();
+  }, RELOAD_DELAY_MS);
+};
+
+export const changeAfterTimeOff = (durationMinutes) => {
+  const delayMs = durationMinutes * 60 * 1000 + 1000;
+  setTimeout(vibrateAndReload, delayMs);
 };

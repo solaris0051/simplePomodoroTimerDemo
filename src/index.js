@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const timerDurations = [0.2, 0.4, 0.6, 0.1];
+const timerDurations = [25, 30, 55, 5];
 const headerMessages = [
     `今この瞬間に<br>集中してください。`,
     `やすらぎのときを少し、<br>過ごされますように。`,
@@ -26,7 +26,7 @@ const timerButtons = [
     document.getElementById("btn12"),
     document.getElementById("btn24"),
     document.getElementById("btn36"),
-    document.getElementById("btn5"),
+    document.getElementById("btn6"),
     document.getElementById("btn_RST"),
 ];
 const containerDivs = [

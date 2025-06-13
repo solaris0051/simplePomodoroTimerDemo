@@ -1,15 +1,15 @@
-export const changeElementAfterDue = (delayMinutes, targetButton, targetElement, newClassName) => {
-  const applyClassNameAndVibrate = () => {
+export const changeAfterTimerEnd = (durationMinutes, buttonElement, targetElement, newClassName) => {
+  const applyClassAndVibrate = () => {
     targetElement.className = newClassName;
     navigator.vibrate(5000);
   };
 
-  const enableTargetButton = () => {
-    targetButton.disabled = false;
+  const enableButton = () => {
+    buttonElement.disabled = false;
   };
 
   setTimeout(() => {
-    applyClassNameAndVibrate();
-    setTimeout(enableTargetButton, 5000);
-  }, delayMinutes * 60 * 1000 + 1000);
+    applyClassAndVibrate();
+    setTimeout(enableButton, 5000);
+  }, durationMinutes * 60 * 1000 + 1000);
 };
